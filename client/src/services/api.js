@@ -87,6 +87,7 @@ export const notificationAPI = {
 
 export const categoryAPI = {
   list: (type) => api.get('/categories', { params: { type } }),
+  listCustom: (type) => api.get('/categories/custom', { params: { type } }),
   create: (data) => api.post('/categories', data),
   remove: (id) => api.delete(`/categories/${id}`),
 };

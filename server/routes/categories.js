@@ -19,6 +19,17 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Returns full custom category objects (with _id) for management UI
+router.get('/custom', async (req, res) => {
+  try {
+    const { type = 'expense' } = req.query;
+    const custom = await CustomCategory.find({ userId: req.user._id, type });
+    res.json(custom);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 router.post('/', async (req, res) => {
   try {
     const { name, type = 'expense' } = req.body;
