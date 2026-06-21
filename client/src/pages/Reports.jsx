@@ -22,13 +22,19 @@ export default function Reports() {
   const [endDate, setEndDate] = useState('');
   const [data, setData] = useState(null);
 
-  const load = () => {
-    const params = { period };
-    if (period === 'custom') { params.startDate = startDate; params.endDate = endDate; }
+  const load = (p = period, s = startDate, e = endDate) => {
+    const params = { period: p };
+    if (p === 'custom') {
+      if (!s || !e) return; // don't fetch without both dates
+      params.startDate = s;
+      params.endDate = e;
+    }
     dashboardAPI.analytics(params).then(({ data: d }) => setData(d));
   };
 
-  useEffect(() => { load(); }, [period]);
+  useEffect(() => {
+    if (period !== 'custom') load();
+  }, [period]);
 
   const expensePie = data?.expenseByCategory
     ? Object.entries(data.expenseByCategory).map(([name, value]) => ({ name, value }))
@@ -53,18 +59,18 @@ export default function Reports() {
         { Metric: 'Total Expenses', Value: data.totalExpenses },
         { Metric: 'Savings', Value: data.savings },
         ...txRows,
-      ], 'smartbudget-report.csv');
+      ], 'spendorax-report.csv');
     } else if (format === 'excel') {
-      exportExcel(txRows, 'smartbudget-report.xlsx');
+      exportExcel(txRows, 'spendorax-report.xlsx');
     } else {
-      await exportPDF('SmartBudget Financial Report', [
+      await exportPDF('SpendoraX Financial Report', [
         { heading: 'Summary', columns: ['Metric', 'Value'], data: [
           { Metric: 'Total Income', Value: formatCurrency(data.totalIncome, currency) },
           { Metric: 'Total Expenses', Value: formatCurrency(data.totalExpenses, currency) },
           { Metric: 'Savings', Value: formatCurrency(data.savings, currency) },
         ]},
         { heading: 'Transactions', columns: ['Date', 'Type', 'Category', 'Amount'], data: txRows },
-      ], 'smartbudget-report.pdf');
+      ], 'spendorax-report.pdf');
     }
   };
 
@@ -92,7 +98,7 @@ export default function Reports() {
           <>
             <input type="date" className="input-field w-auto" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
             <input type="date" className="input-field w-auto" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
-            <button onClick={load} className="btn-primary text-sm">Apply</button>
+            <button onClick={() => load('custom', startDate, endDate)} className="btn-primary text-sm">Apply</button>
           </>
         )}
       </div>

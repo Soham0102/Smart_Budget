@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Wallet, Mail, Lock, User, Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff, Lock, Mail, User } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export function Login() {
@@ -31,10 +31,8 @@ export function Login() {
       <div className="w-full max-w-sm bg-white dark:bg-slate-800 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 p-8">
         {/* Logo */}
         <div className="flex flex-col items-center mb-8">
-          <div className="w-12 h-12 rounded-xl bg-indigo-600 flex items-center justify-center mb-3">
-            <Wallet size={24} className="text-white" />
-          </div>
-          <h1 className="text-xl font-semibold text-slate-800 dark:text-slate-100">SmartBudget</h1>
+          <img src="/logo.png" alt="SpendoraX" className="w-14 h-14 rounded-2xl object-contain mb-3" />
+          <h1 className="text-xl font-semibold text-slate-800 dark:text-slate-100">SpendoraX</h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Sign in to your account</p>
         </div>
 
@@ -139,10 +137,8 @@ export function Register() {
       <div className="w-full max-w-sm bg-white dark:bg-slate-800 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 p-8">
         {/* Logo */}
         <div className="flex flex-col items-center mb-8">
-          <div className="w-12 h-12 rounded-xl bg-indigo-600 flex items-center justify-center mb-3">
-            <Wallet size={24} className="text-white" />
-          </div>
-          <h1 className="text-xl font-semibold text-slate-800 dark:text-slate-100">Create Account</h1>
+          <img src="/logo.png" alt="SpendoraX" className="w-14 h-14 rounded-2xl object-contain mb-3" />
+          <h1 className="text-xl font-semibold text-slate-800 dark:text-slate-100">SpendoraX</h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Start tracking your finances</p>
         </div>
 

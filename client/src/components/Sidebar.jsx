@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   LayoutDashboard, TrendingUp, TrendingDown, Target, FileBarChart,
-  ArrowLeftRight, PiggyBank, Settings, Wallet, X,
+  ArrowLeftRight, PiggyBank, Settings, X,
 } from 'lucide-react';
 
 const links = [
@@ -28,12 +28,10 @@ export default function Sidebar({ open, onClose }) {
       >
         <div className="p-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600">
-              <Wallet size={22} className="text-white" />
-            </div>
+            <img src="/logo.png" alt="SpendoraX" className="w-10 h-10 rounded-xl object-contain" />
             <div>
-              <h1 className="font-bold text-lg gradient-text">SmartBudget</h1>
-              <p className="text-xs opacity-50">Finance Tracker</p>
+              <h1 className="font-bold text-lg gradient-text">SpendoraX</h1>
+              <p className="text-xs opacity-50">Track. Plan. Grow.</p>
             </div>
           </div>
           <button onClick={onClose} className="lg:hidden p-1 opacity-60 hover:opacity-100">
