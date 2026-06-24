@@ -12,6 +12,7 @@ import dashboardRoutes from './routes/dashboard.js';
 import notificationRoutes from './routes/notifications.js';
 import categoryRoutes from './routes/categories.js';
 import dataRoutes from './routes/data.js';
+import udhariRoutes from './routes/udhari.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -31,6 +32,7 @@ app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/data', dataRoutes);
+app.use('/api/udhari', udhariRoutes);
 
 app.use((err, _req, res, _next) => {
   console.error(err);

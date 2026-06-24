@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   LayoutDashboard, TrendingUp, TrendingDown, Target, FileBarChart,
-  ArrowLeftRight, PiggyBank, Settings, X,
+  ArrowLeftRight, PiggyBank, Settings, X, HandCoins,
 } from 'lucide-react';
 
 const links = [
@@ -13,6 +13,7 @@ const links = [
   { to: '/reports', icon: FileBarChart, label: 'Reports' },
   { to: '/transactions', icon: ArrowLeftRight, label: 'Transactions' },
   { to: '/goals', icon: PiggyBank, label: 'Goals & Savings' },
+  { to: '/udhari', icon: HandCoins, label: 'Udhari Tracker' },
   { to: '/settings', icon: Settings, label: 'Settings' },
 ];
 
@@ -64,7 +65,7 @@ export default function Sidebar({ open, onClose }) {
           <p className="text-xs font-medium mb-1">Pro Tip</p>
           <p className="text-xs opacity-60">Track daily expenses to stay within budget!</p>
         </div>
-        <p className="text-center text-xs opacity-40 pb-4">Developed by ST01AUR ❤️</p>
+        <p className="text-center text-xs opacity-40 pb-4">Developed by ST01❤️</p>
       </aside>
     </>
   );

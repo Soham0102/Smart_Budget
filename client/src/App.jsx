@@ -10,6 +10,7 @@ import Transactions from './pages/Transactions';
 import Reports from './pages/Reports';
 import Goals from './pages/Goals';
 import Settings from './pages/Settings';
+import Udhari from './pages/Udhari';
 import { Login, Register } from './pages/Auth';
 
 function PrivateRoute({ children }) {
@@ -44,6 +45,7 @@ export default function App() {
               <Route path="transactions" element={<Transactions />} />
               <Route path="reports" element={<Reports />} />
               <Route path="goals" element={<Goals />} />
+              <Route path="udhari" element={<Udhari />} />
               <Route path="settings" element={<Settings />} />
             </Route>
           </Routes>

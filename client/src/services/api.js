@@ -97,4 +97,12 @@ export const dataAPI = {
   import: (data) => api.post('/data/import', data),
 };
 
+export const udhariAPI = {
+  list: () => api.get('/udhari'),
+  create: (data) => api.post('/udhari', data),
+  update: (id, data) => api.put(`/udhari/${id}`, data),
+  settle: (id) => api.put(`/udhari/${id}/settle`),
+  remove: (id) => api.delete(`/udhari/${id}`),
+};
+
 export default api;
